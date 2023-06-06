@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Results{% endblock %}
+
+{% block body %}
+<div class = "container">
+<h1>Informationen zu ihrer Eingabe</h1>
+Ihr eingegebener Zeitpunkt: {{tag}} {{monat}} {{jahr}} {{minuten}}</br>
+Dieser Zeitpunkt ist an einem {{weekday}} </br>
+
+{% if feiertag is not null %}
+    Dieser Zeitpunkt is an einem Feiertag: {{feiertag}} </br>
+{% else %}
+Dieser Zeitpunk ist nicht an einem Feiertag. </br>
+{% endif %}
+
+Der Zeitpunkt ist vom aktuellen Datum {{timedifference}} entfernt. </br>
+Der Zeitpunkt entspricht in folgenden Städten: </br>
+New York {{newyorktime|date('Y-d-m H:i:s', false)}} </br>
+Tokyo {{tokyotime|date('Y-d-m H:i:s', false)}}
+</div>
+{% endblock %}
